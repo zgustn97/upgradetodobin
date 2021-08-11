@@ -11,13 +11,13 @@ import SwiftUI
 
 class Myrealmdata:Object {
     @objc dynamic var content: String = ""
-  
+    
 
 }
 
 let realm = try! Realm()
 
-
+// 데이터 저장
 func inPutdata(input:String){
 
 
@@ -35,6 +35,7 @@ func inPutdata(input:String){
     }
     
 }
+//데이터를 배열에 업데이트
 func loadData() -> Array<String> {
     let data:Results<Myrealmdata>
     data = realm.objects(Myrealmdata.self)
@@ -47,13 +48,13 @@ func loadData() -> Array<String> {
     return arr
     }
 
-
+//배열을 데이터에 저장
 func indexingData(arr:Array<String>){
     for cnt in arr {
         inPutdata(input: cnt)
     }//for
     }//indexingData
-
+//데이터 삭제
 func deleteData(){
     do{
         try realm.write{
