@@ -8,6 +8,7 @@
 
 import SwiftUI
 import RealmSwift
+import UserNotifications
 
 class observedstruct:ObservableObject {
     var arr:Array = loadData()
@@ -19,7 +20,7 @@ class observedstruct:ObservableObject {
         textlist = arr
     }
 }
-
+var undelete = UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
 
 struct ContentView: View {
     
@@ -27,7 +28,7 @@ struct ContentView: View {
     @ObservedObject var obser = observedstruct()
     @State var check:Bool = false
     @State var selectnotify = [Int]()
-//    @State var notifystring:String = ""
+
     
     var body: some View {
  
@@ -35,9 +36,6 @@ struct ContentView: View {
                 HStack{
                     TextField("input", text: $input).padding(10)
                     Button(action: {
-                        //                    inPutdata(input: input)
-                        //                    obser.data = realm.objects(Myrealmdata.self)
-                        
                         obser.textlist.append(input)
                         deleteData()
                         indexingData(arr: obser.textlist)
@@ -62,9 +60,9 @@ struct ContentView: View {
                         Text("알림 설정").background(Color.blue).foregroundColor(.yellow).cornerRadius(3.0)
                     })
                     Button(action: {
-                        
+                        undelete
                     }, label: {
-                        Text("삭제").background(Color.blue).foregroundColor(.yellow).cornerRadius(3.0)
+                        Text("알림 삭제").background(Color.blue).foregroundColor(.yellow).cornerRadius(3.0)
                     })
                 }//Hstack
                 List{
