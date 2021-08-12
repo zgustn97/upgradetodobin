@@ -26,6 +26,8 @@ struct ContentView: View {
     @State private var input:String = ""
     @ObservedObject var obser = observedstruct()
     @State var check:Bool = false
+    @State var selectnotify = [Int]()
+//    @State var notifystring:String = ""
     
     var body: some View {
  
@@ -56,7 +58,7 @@ struct ContentView: View {
                     Button(action:{ authorize_Noti()}, label: {
                         Text("알림수락").background(Color.blue).foregroundColor(.yellow).cornerRadius(3.0)
                     })//button
-                    Button(action: {notifySchedule(t: obser.textlist[0])}, label: {
+                    Button(action: {notifySchedule(t: makeString(arr: obser.textlist, index: selectnotify))}, label: {
                         Text("알림 설정").background(Color.blue).foregroundColor(.yellow).cornerRadius(3.0)
                     })
                     Button(action: {
@@ -68,6 +70,8 @@ struct ContentView: View {
                 List{
                     ForEach(obser.textlist.indices,id:\.self){(loded) in Text(obser.textlist[loded]).onTapGesture {
                         print(loded)
+                        selectnotify.append(loded)
+                        print(selectnotify)
                         //알림 보낼 아이템 선택
                     }
                         

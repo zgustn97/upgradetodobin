@@ -31,3 +31,12 @@ func notifySchedule(t:String) -> Void {
     
     UNUserNotificationCenter.current().add(request)
 }
+
+
+func makeString(arr:[String] , index:[Int]) -> String {
+    var temp:String = ""
+    for cnt in index{
+        temp = temp + arr[cnt]
+    }
+    return temp
+}
