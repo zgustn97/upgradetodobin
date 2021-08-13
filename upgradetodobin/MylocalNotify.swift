@@ -36,7 +36,7 @@ func notifySchedule(t:String) -> Void {
 func makeString(arr:[String] , index:[Int]) -> String {
     var temp:String = ""
     for cnt in index{
-        temp = temp + arr[cnt]
+        temp = temp + arr[cnt] + ", "
     }
     return temp
 }
