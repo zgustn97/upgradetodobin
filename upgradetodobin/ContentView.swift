@@ -4,7 +4,7 @@
 //
 //  Created by 박현수 on 2021/08/06.
 //
-//텝 제스쳐를 통해 선택한 항목을 알 수 있고 남은 것은 선택한 항목을 프린트 문을 이용해 선택한 항목들을 나열하고 한번에 노티피케이션 요청
+
 
 import SwiftUI
 import RealmSwift
@@ -20,6 +20,7 @@ class observedstruct:ObservableObject {
         textlist = arr
     }
 }
+//알람 삭제 함수
 var undelete = UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
 
 struct ContentView: View {
@@ -28,10 +29,10 @@ struct ContentView: View {
     @ObservedObject var obser = observedstruct()
     @State var check:Bool = false
     @State var selectnotify = [Int]()
-
+//    @State var select:Bool = true
     
     var body: some View {
- 
+        
             VStack{
                 HStack{
                     TextField("input", text: $input).padding(10)
@@ -44,8 +45,9 @@ struct ContentView: View {
                             
                         //행동을 취하면 저장소를 비우고 현재 배열로 업데이트
                     }, label: {
-                        Text("Button")
-                    }).padding(10).cornerRadius(3.0).background(Color.blue).foregroundColor(.yellow)
+                        Text("확인")
+                            .font(.title2)
+                    }).padding(10).background(Color.white).foregroundColor(.black).cornerRadius(3.0)
                 }
                 
                 
@@ -66,14 +68,28 @@ struct ContentView: View {
                     })
                 }//Hstack
                 List{
-                    ForEach(obser.textlist.indices,id:\.self){(loded) in Text(obser.textlist[loded]).onTapGesture {
-                        print(loded)
-                        selectnotify.append(loded)
-                        print(selectnotify)
-                        //알림 보낼 아이템 선택
-                    }
-                        
-         
+                    
+                    ForEach(obser.textlist.indices,id:\.self){(loded) in
+                        HStack{Text(obser.textlist[loded])
+                        Spacer()
+                            Button(action: {print(loded)
+                                    selectnotify.append(loded)
+                                    print(selectnotify)}, label: {
+                                Image("mainimage")
+                                .resizable()
+                                    .frame(width: 40, height: 40, alignment: .leading)
+                                
+                            })
+                                
+//                                .onTapGesture {
+//                                    print(loded)
+//                                    selectnotify.append(loded)
+//                                    print(selectnotify)
+//                                }//tapgesture
+                            //알림 보낼 아이템 선택
+                            
+                    
+                        }//hstack
 
                         
                     }.onDelete{(indexSet) in
@@ -81,13 +97,13 @@ struct ContentView: View {
                         deleteData()
                         indexingData(arr: obser.textlist)
                         print(obser.textlist)
-                        
-                    }
+                    }//ondelete
+                    
                     
                     
                 } //List
                 
-            }.padding()
+            }.padding().navigationBarTitle("메모",displayMode: .inline)
             
             //vstack
         
