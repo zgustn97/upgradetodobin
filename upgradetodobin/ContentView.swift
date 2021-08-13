@@ -35,7 +35,8 @@ struct ContentView: View {
         
             VStack{
                 HStack{
-                    TextField("input", text: $input).padding(10)
+                    TextField("여기에 써!", text: $input).padding(10).border(Color.blue, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
+                    
                     Button(action: {
                         obser.textlist.append(input)
                         deleteData()
@@ -47,7 +48,7 @@ struct ContentView: View {
                     }, label: {
                         Text("확인")
                             .font(.title2)
-                    }).padding(10).background(Color.white).foregroundColor(.black).cornerRadius(3.0)
+                    }).padding(10).background(Color.blue).foregroundColor(.yellow).cornerRadius(5.0)
                 }
                 
                 
@@ -56,15 +57,15 @@ struct ContentView: View {
                 //Hstack
                 HStack{
                     Button(action:{ authorize_Noti()}, label: {
-                        Text("알림수락").background(Color.blue).foregroundColor(.yellow).cornerRadius(3.0)
+                        Text("알림수락").padding(10).background(Color.blue).foregroundColor(.yellow).cornerRadius(5.0)
                     })//button
                     Button(action: {notifySchedule(t: makeString(arr: obser.textlist, index: selectnotify))}, label: {
-                        Text("알림 설정").background(Color.blue).foregroundColor(.yellow).cornerRadius(3.0)
+                        Text("알림 설정").padding(10).background(Color.blue).foregroundColor(.yellow).cornerRadius(5.0)
                     })
                     Button(action: {
                         undelete
                     }, label: {
-                        Text("알림 삭제").background(Color.blue).foregroundColor(.yellow).cornerRadius(3.0)
+                        Text("알림 삭제").padding(10).background(Color.blue).foregroundColor(.yellow).cornerRadius(5.0)
                     })
                 }//Hstack
                 List{
