@@ -7,6 +7,7 @@ target 'upgradetodobin' do
 
   # Pods for upgradetodobin
 pod 'RealmSwift'
+pod 'SwiftyJSON','~> 4.0'
   target 'upgradetodobinTests' do
     inherit! :search_paths
     # Pods for testing

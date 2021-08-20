@@ -25,9 +25,9 @@ struct SwiftUIView: View {
                     Text("메모 확인\n 하러 가기").font(.largeTitle).fontWeight(.heavy).foregroundColor(Color.white).frame(width: 200.0 , height: 100.0) .background(RoundedRectangle(cornerRadius: 15.0).fill(Color.purple)).shadow(radius: 30)//button
                 })//NavigationLink
                NavigationLink(
-                destination: MyWebView(urlToload: "https://v2.ereg.ets.org/ereg/public/jump?_p=TEL"),
+                destination: MyWebView(urlToload: "www.opic.or.kr"),
                 label: {
-                    Text("토플 확인").font(.largeTitle).fontWeight(.heavy).foregroundColor(Color.white).frame(width: 300.0 , height: 50.0) .background(RoundedRectangle(cornerRadius: 15.0).fill(Color.purple)).shadow(radius: 20)
+                    Text("오픽 확인").font(.largeTitle).fontWeight(.heavy).foregroundColor(Color.white).frame(width: 300.0 , height: 50.0) .background(RoundedRectangle(cornerRadius: 15.0).fill(Color.purple)).shadow(radius: 20)
                 })//navilink
                 }//Vstack
                 
