@@ -3,7 +3,13 @@
 * ###  Description
 메모한 내용을 알림으로 계속해서 상기시켜 주는 메모 앱. 추가 기능으로 그날의 날씨에 따라 우산을 챙겨야 하는지 여부를 알림으로 알려주는 기능 구현 중.
 * ### File
-
+* SwiftUIView.swift
+* ContentView.swift
+* Myrealmdata.swift
+* Mywebview.swift
+* MylocalNotify.swift
+* swiswon.swift
+* Weather.swift
 * ###  How to use
 <img src = "maindisply.png" width = "220"><img src = "mainmemo.png" width = "220"><img src = "usedmomo.png" width = "220"><img src = "mainalert.png" width = "220">
 * 왼쪽부터 메인 화면은 메모 기능과 오픽 사이트로 가는 버튼 오픽 사이트는 웹뷰로 이어짐
