@@ -11,10 +11,10 @@
 * 시간은 1분으로 맞춰져 있으면 배포할 때는 시간을 자유롭게 선택하도록 구현할 예정
 
 * ### Files
-* SwiftUIView.swift : *메인화면*
-* ContentView.swift : *메모앱의 메인화면*
-* Myrealmdata.swift : *메모앱의 내용을 저장하고 다시 실행시 저장된 메모앱을 불러 오는 파일*
-* Mywebview.swift : *오픽 사이트를 여는 웹뷰*
-* MylocalNotify.swift : *알림을 구현한 파일*
-* swiswon.swift : *기상청에서 api를 받아 파싱한 파일*
+>* SwiftUIView.swift : *메인화면*
+>* Mywebview.swift : *오픽 사이트를 여는 웹뷰*
+>>* ContentView.swift : *메모앱의 메인화면*
+>>* Myrealmdata.swift : *메모앱의 내용을 저장하고 다시 실행시 저장된 메모앱을 불러 오는 파일*
+>>* MylocalNotify.swift : *알림을 구현한 파일*
+>>>* swiswon.swift : *기상청에서 api를 받아 파싱한 파일*
 * ~~Weather.swift~~
